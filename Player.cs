@@ -11,7 +11,25 @@ namespace Space_Invaders_2
     {
         public bool alive = true;
         public char icon = 'W';
-        public void Move() { }
+        public void MoveLeft() { }
+        public void MoveRight() { }
+        public void Shoot() { }
+        public void getInput()
+        {
+            ConsoleKeyInfo key = Console.ReadKey();
+            switch (key)
+            {
+                case ConsoleKey.LeftArrow:
+                    MoveLeft();
+                    break;
+                case ConsoleKey.RightArrow:
+                    MoveRight();
+                    break;
+                case ConsoleKey.Spacebar:
+                    Shoot();
+                    break;
+            }
+        }
         public void Shoot() { }
     }
 }
