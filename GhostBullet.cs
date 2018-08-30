@@ -7,9 +7,9 @@ using System.Threading;
 
 namespace Space_Invaders_2
 {
-    class Bullet
+    class GhostBullet
     {
         public bool isshot;
-        public char icon1 = '^';
+        public char icon = '∨';
     }
 }
