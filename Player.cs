@@ -9,7 +9,7 @@ namespace Space_Invaders_2
 {
     class Player
     {
-        public bool alive;
+        public bool alive = true;
         public char icon = 'W';
         public void Move() { }
         public void Shoot() { }
