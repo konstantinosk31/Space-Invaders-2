@@ -3,33 +3,57 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Threading;
 
 namespace Space_Invaders_2
 {
     class Player
     {
-        public bool alive = true;
-        public char icon = 'W';
-        public void MoveLeft() { }
-        public void MoveRight() { }
-        public void Shoot() { }
-        public void getInput()
+        private int lives;
+        private int x, y;
+        public Player()
         {
-            ConsoleKeyInfo key = Console.ReadKey();
-            switch (key)
+            this.lives = 3;
+            this.x = 10;
+            this.y = 23;
+        }
+        public void Show()
+        {
+            if (this.lives > 1)
             {
-                case ConsoleKey.LeftArrow:
-                    MoveLeft();
-                    break;
-                case ConsoleKey.RightArrow:
-                    MoveRight();
-                    break;
-                case ConsoleKey.Spacebar:
-                    Shoot();
-                    break;
+                Console.Write("\r" + new string(' ', Console.WindowWidth) + "\r");
+                Console.SetCursorPosition(this.x, this.y);
+                Console.Write("W");
+            }
+            else
+            {
+                while (true)
+                {
+                    int i;
+                    for (i = 1; i > 100; i += 9)
+                    {
+                        Console.Write("Game over");
+                    }
+                    Console.WriteLine();
+                }
             }
         }
-        public void Shoot() { }
+        public void move(int i)
+        {
+            if (this.x >= 3)
+            {
+                if (this.x <= 34)
+                {
+                    this.x += i;
+                }
+                else
+                {
+                    this.x = 34;
+                }
+            }
+            else
+            {
+                this.x = 3;
+            }
+        }
     }
 }
