@@ -66,7 +66,6 @@ namespace Space_Invaders_2
                 if (key.Key == ConsoleKey.LeftArrow)
                 {
                     p.move(-1);
-                    File.WriteAllText("data.dat", "Hello");
                 }
                 else if (key.Key == ConsoleKey.RightArrow)
                 {
