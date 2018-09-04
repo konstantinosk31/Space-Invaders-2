@@ -55,6 +55,7 @@ namespace Space_Invaders_2
                 this.x = 3;
             }
         }
+        public void shoot() { }
         public int getx()
         {
             return this.x;
