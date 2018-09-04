@@ -15,7 +15,7 @@ namespace Space_Invaders_2
         {
             World world = new World();
             Player p = new Player();
-            File.WriteAllText("data.dat", "10");
+            File.WriteAllText("data.txt", "10");
             world.ghostMap = new Ghost[world.ghCntY + 1, world.ghCntX + 1];
             int ghStartX = (world.wallX1 + world.wallX2) / 2 - world.ghCntX - 1;
             for (int y = 1; y <= world.ghCntY; y++)
@@ -37,12 +37,12 @@ namespace Space_Invaders_2
                         world.ghostMap[y, x].Show();
                     }
                 }
-                if (File.Exists("data.dat"))
+                if (File.Exists("data.txt"))
                 {
                     try
                     {
-                        p.setx(int.Parse(File.ReadAllText("data.dat")));
-                        File.Delete("data.dat");
+                        p.setx(int.Parse(File.ReadAllText("data.txt")));
+                        File.Delete("data.txt");
                     }
                     catch (IOException e)
                     {
@@ -78,7 +78,7 @@ namespace Space_Invaders_2
                 cord = p.getx();
                 try
                 {
-                    File.WriteAllText("data.dat", cord.ToString());
+                    File.WriteAllText("data.txt", cord.ToString());
                 }
                 catch (IOException e)
                 {
