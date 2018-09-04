@@ -71,6 +71,10 @@ namespace Space_Invaders_2
                 {
                     p.move(1);
                 }
+                else if (key.Key == ConsoleKey.Spacebar)
+                {
+                    p.shoot();
+                }
                 cord = p.getx();
                 try
                 {
