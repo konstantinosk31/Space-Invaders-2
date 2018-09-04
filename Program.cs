@@ -18,11 +18,11 @@ namespace Space_Invaders_2
             File.WriteAllText("data.dat", "10");
             world.ghostMap = new Ghost[world.ghCntY + 1, world.ghCntX + 1];
             int ghStartX = (world.wallX1 + world.wallX2) / 2 - world.ghCntX - 1;
-            for(int y = 1; y <= world.ghCntY; y++)
+            for (int y = 1; y <= world.ghCntY; y++)
             {
-                for(int x = 1; x <= world.ghCntX; x++)
+                for (int x = 1; x <= world.ghCntX; x++)
                 {
-                    world.ghostMap[y, x] = new Ghost(2*y, ghStartX + 2 * x);
+                    world.ghostMap[y, x] = new Ghost(2 * y, ghStartX + 2 * x);
                 }
             }
             Thread t = new Thread(input);
@@ -35,21 +35,21 @@ namespace Space_Invaders_2
                     for (int x = 1; x <= world.ghCntX; x++)
                     {
                         world.ghostMap[y, x].Show();
-                        if (File.Exists("data.dat"))
-                        {
-                            try
-                            {
-                                p.setx(int.Parse(File.ReadAllText("data.dat")));
-                                File.Delete("data.dat");
-                            }
-                            catch (IOException e)
-                            {
-
-                            }
-                        }
-                        p.Show();
                     }
                 }
+                if (File.Exists("data.dat"))
+                {
+                    try
+                    {
+                        p.setx(int.Parse(File.ReadAllText("data.dat")));
+                        File.Delete("data.dat");
+                    }
+                    catch (IOException e)
+                    {
+
+                    }
+                }
+                p.Show();
                 Thread.Sleep(200);
                 world.MoveGhosts();
                 Console.Clear();
